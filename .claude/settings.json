@@ -1,0 +1,14 @@
+{
+  "env": {
+    "CLAUDE_CODE_TASK_LIST_ID": "screentimechores",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "mcpServers": {
+    "local-mcp": {
+      "transport": {
+        "type": "http",
+        "url": "http://localhost:3500/mcp"
+      }
+    }
+  }
+}
