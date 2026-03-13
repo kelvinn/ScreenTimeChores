@@ -18,6 +18,8 @@ final class AppState: ObservableObject {
     @Published var activeSession: ActiveSession = ActiveSession()
     @Published var enforcementState: EnforcementState = EnforcementState()
     @Published var rewardTasks: [RewardTask] = []
+    @Published var taskFilter: TaskFilter = .all
+    @Published var activityEvents: [ActivityEvent] = []
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
 
@@ -45,6 +47,92 @@ final class AppState: ObservableObject {
         activeSession = storage.loadActiveSession()
         enforcementState = storage.loadEnforcementState()
         rewardTasks = storage.loadRewardTasks()
+        activityEvents = storage.loadActivityEvents()
+    }
+
+    // MARK: - Task Filtering
+
+    var filteredTasks: [RewardTask] {
+        let calendar = Calendar.current
+        let today = calendar.component(.weekday, from: Date())
+        guard let todayDay = DayOfWeek(rawValue: today) else {
+            return rewardTasks
+        }
+
+        switch taskFilter {
+        case .all:
+            return rewardTasks
+        case .today:
+            return rewardTasks.filter { $0.isScheduledFor(day: todayDay) }
+        case .weekdays:
+            return rewardTasks.filter { $0.scheduleType == .weekdays || $0.scheduleType == .allDays }
+        case .weekends:
+            return rewardTasks.filter { $0.scheduleType == .weekends || $0.scheduleType == .allDays }
+        case .custom:
+            return rewardTasks.filter { $0.scheduleType == .custom }
+        }
+    }
+
+    var availableTasks: [RewardTask] {
+        filteredTasks.filter { !$0.isCompleted }
+    }
+
+    var completedTasks: [RewardTask] {
+        filteredTasks.filter { $0.isCompleted }
+    }
+
+    var tasksByCategory: [TaskCategory: [RewardTask]] {
+        Dictionary(grouping: availableTasks, by: { $0.category })
+    }
+
+    // MARK: - Task Management
+
+    func addTask(_ task: RewardTask) {
+        rewardTasks.append(task)
+        storage.saveRewardTasks(rewardTasks)
+    }
+
+    func updateTask(_ task: RewardTask) {
+        if let index = rewardTasks.firstIndex(where: { $0.id == task.id }) {
+            rewardTasks[index] = task
+            storage.saveRewardTasks(rewardTasks)
+        }
+    }
+
+    func deleteTask(_ task: RewardTask) {
+        rewardTasks.removeAll { $0.id == task.id }
+        storage.saveRewardTasks(rewardTasks)
+    }
+
+    func toggleTaskCompletion(_ task: RewardTask) {
+        if let index = rewardTasks.firstIndex(where: { $0.id == task.id }) {
+            let wasCompleted = rewardTasks[index].isCompleted
+            rewardTasks[index].isCompleted.toggle()
+            storage.saveRewardTasks(rewardTasks)
+
+            if !wasCompleted && rewardTasks[index].isCompleted {
+                // Task was just completed - add time
+                earnReward(for: task)
+                recordActivityEvent(type: .taskCompleted, detail: task.title)
+            } else if wasCompleted && !rewardTasks[index].isCompleted {
+                // Task was just uncompleted - remove time
+                timeBank.subtractTime(minutes: task.rewardMinutes)
+                storage.saveTimeBank(timeBank)
+                recordActivityEvent(type: .taskUncompleted, detail: task.title)
+            }
+        }
+    }
+
+    // MARK: - Activity Recording
+
+    func recordActivityEvent(type: ActivityEventType, detail: String? = nil) {
+        let event = ActivityEvent(type: type, detail: detail)
+        activityEvents.insert(event, at: 0)
+        // Keep only the most recent 50 events
+        if activityEvents.count > 50 {
+            activityEvents = Array(activityEvents.prefix(50))
+        }
+        storage.saveActivityEvents(activityEvents)
     }
 
     // MARK: - Authorization
@@ -75,13 +163,19 @@ final class AppState: ObservableObject {
 
     // MARK: - Time Banking
 
-    func addTime(minutes: Int) {
+    func addTime(minutes: Int, recordEvent: Bool = false) {
         timeBank.addTime(minutes: minutes)
         storage.saveTimeBank(timeBank)
+
+        if recordEvent {
+            recordActivityEvent(type: .timeAdded, detail: "+\(minutes) minutes")
+        }
     }
 
     func earnReward(for task: RewardTask) {
-        addTime(minutes: task.rewardMinutes)
+        // Don't call addTime with recordEvent here since toggleTaskCompletion handles it
+        timeBank.addTime(minutes: task.rewardMinutes)
+        storage.saveTimeBank(timeBank)
     }
 
     // MARK: - Session Management
@@ -105,6 +199,9 @@ final class AppState: ObservableObject {
         )
 
         storage.saveActiveSession(activeSession)
+
+        // Record activity
+        recordActivityEvent(type: .sessionStarted)
     }
 
     func stopSession() {
@@ -117,6 +214,9 @@ final class AppState: ObservableObject {
         // Update session
         activeSession.stop()
         storage.saveActiveSession(activeSession)
+
+        // Record activity
+        recordActivityEvent(type: .sessionEnded)
     }
 
     // MARK: - Shield Management

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		218F53169D6458CA2C8DEF3E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4261E036EAAC6E703A8E5DE /* ContentView.swift */; };
 		35B2B77320E659FD748E5B49 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFE2DD15E352A68F75AA17D /* AppState.swift */; };
 		37C4461FFAD80EF059EC1B91 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458B175FEE9E68E3DB91ACFD /* Models.swift */; };
+		3F53E84B45D3448DD9249464 /* ChoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AD82BAB4A02B58330CEEB5 /* ChoresView.swift */; };
 		48CEC87C6D6D1945E1103224 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBC0A127253EA1264A4D907 /* Storage.swift */; };
 		490DFC8F38D2062A6823CD42 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E38A7B8BADF570EBDDCB7 /* StatusView.swift */; };
 		520A24861E0F7265E58A236B /* ShieldConfigurationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D12E98F24882B7D8EC1A57 /* ShieldConfigurationExtension.swift */; };
@@ -22,12 +23,14 @@
 		7AA76E99F010C2A52C1C80EF /* RewardShieldApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608D971D59E3FCDF7BB00208 /* RewardShieldApp.swift */; };
 		7C6F0BC15C8477D6B5B4E9F9 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458B175FEE9E68E3DB91ACFD /* Models.swift */; };
 		810D02C0259A4B068F2D919F /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBC0A127253EA1264A4D907 /* Storage.swift */; };
+		88863DF3EFD4F05B89EBBCC0 /* AddTaskSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAC6157F2D5BEEB7B8C4B63 /* AddTaskSheet.swift */; };
 		8E1DF1563F7982BCD9A8FF43 /* ShieldUIExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CC5CE0F9B262FF6811889DCB /* ShieldUIExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		995D2219915D803BB76DF1EC /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D3CACB2C6BB2C647475BEA /* SessionView.swift */; };
 		AF2D246004C8124BB5FAB295 /* DeviceActivityMonitorExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CE90953FB5B77A3D7D54C259 /* DeviceActivityMonitorExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B382C6FDABFF56C078249DAF /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458B175FEE9E68E3DB91ACFD /* Models.swift */; };
 		BC194D564D6A6B395F77DDEE /* ShieldUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D171890412C2282290947 /* ShieldUIExtension.swift */; };
 		C73411DC4B2D94C3684CE6F9 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBC0A127253EA1264A4D907 /* Storage.swift */; };
+		C82FBC0B7EAA1FA3A1A0F1D2 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3359733176CB9E693FE205A1 /* DashboardView.swift */; };
 		CE201067AECD0F26AC06AC76 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458B175FEE9E68E3DB91ACFD /* Models.swift */; };
 		D6D5C802E3FD933CD5C3DA5E /* RewardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E58BE8903C542D42C3B2C /* RewardsView.swift */; };
 		EF97499D9D773EA5F31E9FFF /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBC0A127253EA1264A4D907 /* Storage.swift */; };
@@ -86,11 +89,13 @@
 		1718D64BED4DCB1C0F686827 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1784F7FBBB85240BD87DEBE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1C8335B5AFD1AB36F0CE06B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3359733176CB9E693FE205A1 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		34348747B9644DA0C0902521 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
 		3605B452CF46183A5E315E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		458B175FEE9E68E3DB91ACFD /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		4DAC6157F2D5BEEB7B8C4B63 /* AddTaskSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskSheet.swift; sourceTree = "<group>"; };
 		524E58BE8903C542D42C3B2C /* RewardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsView.swift; sourceTree = "<group>"; };
-		5ECFD3E108EF28CD474F33B3 /* ManagedSettingsStoreExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ManagedSettingsStoreExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ECFD3E108EF28CD474F33B3 /* ManagedSettingsStoreExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ManagedSettingsStoreExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		603D171890412C2282290947 /* ShieldUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldUIExtension.swift; sourceTree = "<group>"; };
 		608D971D59E3FCDF7BB00208 /* RewardShieldApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardShieldApp.swift; sourceTree = "<group>"; };
 		7E75D328AC5F871CAAB8D415 /* ShieldUIExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShieldUIExtension.entitlements; sourceTree = "<group>"; };
@@ -100,14 +105,15 @@
 		99118F1EE8C0E0AE647D85F7 /* DeviceActivityMonitorExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeviceActivityMonitorExtension.entitlements; sourceTree = "<group>"; };
 		9DFE2DD15E352A68F75AA17D /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		9E7FA05089351F752AE5C4F2 /* CoreModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreModelsTests.swift; sourceTree = "<group>"; };
-		A059E03AB6D30EB3A89B8728 /* RewardShield.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RewardShield.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A059E03AB6D30EB3A89B8728 /* RewardShield.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = RewardShield.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28C3F1F297F7245D3C11E62 /* RewardShield.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RewardShield.entitlements; sourceTree = "<group>"; };
 		A4261E036EAAC6E703A8E5DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A9D12E98F24882B7D8EC1A57 /* ShieldConfigurationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldConfigurationExtension.swift; sourceTree = "<group>"; };
 		B04814D73EDA9863AB60C97F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B23C4DF7C08AFFF92491AAF8 /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
-		CC5CE0F9B262FF6811889DCB /* ShieldUIExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.extensionkit-extension"; path = ShieldUIExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE90953FB5B77A3D7D54C259 /* DeviceActivityMonitorExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DeviceActivityMonitorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC5CE0F9B262FF6811889DCB /* ShieldUIExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ShieldUIExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE90953FB5B77A3D7D54C259 /* DeviceActivityMonitorExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = DeviceActivityMonitorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0AD82BAB4A02B58330CEEB5 /* ChoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresView.swift; sourceTree = "<group>"; };
 		EBD49A23133BAD40A882301C /* RewardShieldTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = RewardShieldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F84E38A7B8BADF570EBDDCB7 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,7 +214,10 @@
 		C7AEFCC79DAC19C13EEC9D1B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4DAC6157F2D5BEEB7B8C4B63 /* AddTaskSheet.swift */,
+				E0AD82BAB4A02B58330CEEB5 /* ChoresView.swift */,
 				A4261E036EAAC6E703A8E5DE /* ContentView.swift */,
+				3359733176CB9E693FE205A1 /* DashboardView.swift */,
 				524E58BE8903C542D42C3B2C /* RewardsView.swift */,
 				09D3CACB2C6BB2C647475BEA /* SessionView.swift */,
 				B23C4DF7C08AFFF92491AAF8 /* SetupView.swift */,
@@ -321,10 +330,19 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					189F227E71BBF967F0985B86 = {
-						DevelopmentTeam = "";
+						DevelopmentTeam = G69C367VGA;
+					};
+					40C54FE4B21FBBB5F3E4299D = {
+						DevelopmentTeam = G69C367VGA;
+					};
+					4965F39B316B1A43F8C18932 = {
+						DevelopmentTeam = G69C367VGA;
+					};
+					B864C75773F73FD50C81FE0E = {
+						DevelopmentTeam = G69C367VGA;
 					};
 					D569D2714579E971F206880C = {
-						DevelopmentTeam = "";
+						DevelopmentTeam = G69C367VGA;
 					};
 				};
 			};
@@ -338,6 +356,7 @@
 			);
 			mainGroup = 13104220A92303D948412591;
 			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -376,8 +395,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88863DF3EFD4F05B89EBBCC0 /* AddTaskSheet.swift in Sources */,
 				35B2B77320E659FD748E5B49 /* AppState.swift in Sources */,
+				3F53E84B45D3448DD9249464 /* ChoresView.swift in Sources */,
 				218F53169D6458CA2C8DEF3E /* ContentView.swift in Sources */,
+				C82FBC0B7EAA1FA3A1A0F1D2 /* DashboardView.swift in Sources */,
 				B382C6FDABFF56C078249DAF /* Models.swift in Sources */,
 				7AA76E99F010C2A52C1C80EF /* RewardShieldApp.swift in Sources */,
 				D6D5C802E3FD933CD5C3DA5E /* RewardsView.swift in Sources */,
@@ -448,7 +470,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Sources/ManagedSettingsStoreExtension/ManagedSettingsStoreExtension.entitlements;
-				DEVELOPMENT_TEAM = G69C367VGA;
 				INFOPLIST_FILE = Sources/ManagedSettingsStoreExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -466,7 +487,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Sources/DeviceActivityMonitorExtension/DeviceActivityMonitorExtension.entitlements;
-				DEVELOPMENT_TEAM = G69C367VGA;
 				INFOPLIST_FILE = Sources/DeviceActivityMonitorExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -533,7 +553,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = G69C367VGA;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -570,9 +590,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Sources/App/RewardShield.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = G69C367VGA;
 				INFOPLIST_FILE = Sources/App/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -589,9 +607,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Sources/App/RewardShield.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = G69C367VGA;
 				INFOPLIST_FILE = Sources/App/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -623,7 +639,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Sources/DeviceActivityMonitorExtension/DeviceActivityMonitorExtension.entitlements;
-				DEVELOPMENT_TEAM = G69C367VGA;
 				INFOPLIST_FILE = Sources/DeviceActivityMonitorExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -675,7 +690,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Sources/ManagedSettingsStoreExtension/ManagedSettingsStoreExtension.entitlements;
-				DEVELOPMENT_TEAM = G69C367VGA;
 				INFOPLIST_FILE = Sources/ManagedSettingsStoreExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -725,7 +739,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = G69C367VGA;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

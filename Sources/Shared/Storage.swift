@@ -13,6 +13,7 @@ enum StorageKey: String {
     case authorizationStatus = "authorizationStatus"
     case rewardTasks = "rewardTasks"
     case targetSelectionVersion = "targetSelectionVersion"
+    case activityEvents = "activityEvents"
 }
 
 /// Shared storage using App Group UserDefaults
@@ -158,13 +159,36 @@ final class SharedStorage {
         defaults.set(current + 1, forKey: StorageKey.targetSelectionVersion.rawValue)
     }
 
+    // MARK: - Activity Events
+
+    private let maxActivityEvents = 50
+
+    func saveActivityEvents(_ events: [ActivityEvent]) {
+        do {
+            let limitedEvents = Array(events.prefix(maxActivityEvents))
+            let data = try PropertyListEncoder().encode(limitedEvents)
+            defaults.set(data, forKey: StorageKey.activityEvents.rawValue)
+        } catch {
+            print("Failed to save activity events: \(error)")
+        }
+    }
+
+    func loadActivityEvents() -> [ActivityEvent] {
+        guard let data = defaults.data(forKey: StorageKey.activityEvents.rawValue),
+              let events = try? PropertyListDecoder().decode([ActivityEvent].self, from: data) else {
+            return []
+        }
+        return events
+    }
+
     // MARK: - Clear All
 
     func clearAll() {
         let keys: [StorageKey] = [
             .selectedTargets, .timeBank, .activeSession,
             .enforcementState, .authorizationStatus,
-            .rewardTasks, .targetSelectionVersion
+            .rewardTasks, .targetSelectionVersion,
+            .activityEvents
         ]
         keys.forEach { defaults.removeObject(forKey: $0.rawValue) }
     }
@@ -172,12 +196,14 @@ final class SharedStorage {
     // MARK: - Default Tasks
 
     static let defaultRewardTasks: [RewardTask] = [
-        RewardTask(title: "Complete homework", rewardMinutes: 30),
-        RewardTask(title: "Read for 20 minutes", rewardMinutes: 20),
-        RewardTask(title: "Clean room", rewardMinutes: 15),
-        RewardTask(title: "Help with chores", rewardMinutes: 15),
-        RewardTask(title: "Practice instrument", rewardMinutes: 20),
-        RewardTask(title: "Exercise / Sports", rewardMinutes: 20),
-        RewardTask(title: "Complete chores", rewardMinutes: 10)
+        RewardTask(title: "Complete homework", rewardMinutes: 30, category: .work, scheduleType: .weekdays),
+        RewardTask(title: "Read for 20 minutes", rewardMinutes: 20, category: .personal, scheduleType: .allDays),
+        RewardTask(title: "Clean room", rewardMinutes: 15, category: .home, scheduleType: .weekends),
+        RewardTask(title: "Help with chores", rewardMinutes: 15, category: .home, scheduleType: .weekdays),
+        RewardTask(title: "Practice instrument", rewardMinutes: 20, category: .personal, scheduleType: .weekdays, selectedDays: [.monday, .wednesday, .friday]),
+        RewardTask(title: "Exercise / Sports", rewardMinutes: 20, category: .health, scheduleType: .weekdays),
+        RewardTask(title: "Walk the dog", rewardMinutes: 10, category: .home, scheduleType: .allDays),
+        RewardTask(title: "Meditate for 10 minutes", rewardMinutes: 10, category: .health, scheduleType: .allDays),
+        RewardTask(title: "Complete chores", rewardMinutes: 10, category: .home, scheduleType: .weekends)
     ]
 }
