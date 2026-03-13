@@ -47,7 +47,7 @@ struct RewardsView: View {
             }
             .navigationTitle("Rewards")
             .sheet(isPresented: $showingAddTime) {
-                AddTimeSheet(timeBank: appState.timeBank) { minutes in
+                AddTimeSheet { minutes in
                     appState.addTime(minutes: minutes)
                 }
             }
@@ -144,7 +144,6 @@ struct TaskRow: View {
 /// Add time sheet
 struct AddTimeSheet: View {
     @Environment(\.dismiss) private var dismiss
-    let timeBank: TimeBank
     let onAdd: (Int) -> Void
 
     @State private var minutes: Int = 15

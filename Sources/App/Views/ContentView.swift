@@ -7,16 +7,22 @@ struct ContentView: View {
 
     var body: some View {
         TabView {
+            // Dashboard Tab (Home)
+            DashboardView()
+                .tabItem {
+                    Label("Dashboard", systemImage: "shield.checkered")
+                }
+
             // Setup Tab
             SetupView()
                 .tabItem {
                     Label("Setup", systemImage: "gearshape")
                 }
 
-            // Rewards Tab
-            RewardsView()
+            // Tasks Tab
+            ChoresView()
                 .tabItem {
-                    Label("Rewards", systemImage: "star")
+                    Label("Tasks", systemImage: "checklist")
                 }
 
             // Session Tab
