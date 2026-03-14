@@ -82,7 +82,7 @@ final class AppState: ObservableObject {
     }
 
     var tasksByCategory: [TaskCategory: [RewardTask]] {
-        Dictionary(grouping: availableTasks, by: { $0.category })
+        Dictionary(grouping: rewardTasks, by: { $0.category })
     }
 
     // MARK: - Task Management

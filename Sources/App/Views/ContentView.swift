@@ -25,12 +25,6 @@ struct ContentView: View {
                     Label("Tasks", systemImage: "checklist")
                 }
 
-            // Session Tab
-            SessionView()
-                .tabItem {
-                    Label("Session", systemImage: "play.circle")
-                }
-
             // Status Tab
             StatusView()
                 .tabItem {
