@@ -102,14 +102,6 @@ struct DashboardView: View {
                     .font(.headline)
 
                 Spacer()
-
-                Button {
-                    showingAddTask = true
-                } label: {
-                    Image(systemName: "plus.circle.fill")
-                        .font(.title3)
-                        .foregroundColor(.blue)
-                }
             }
 
             if appState.availableTasks.isEmpty {

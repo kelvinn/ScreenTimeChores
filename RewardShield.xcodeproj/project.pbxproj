@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -102,6 +102,7 @@
 		7FBC0A127253EA1264A4D907 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		88BE0F19F6D66F5F2153C1D6 /* ManagedSettingsStoreExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ManagedSettingsStoreExtension.entitlements; sourceTree = "<group>"; };
 		8F5063C29D2234A40ADABCE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		948C2D252F64A59D000B978C /* DeviceActivityMonitorExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeviceActivityMonitorExtensionDebug.entitlements; sourceTree = SOURCE_ROOT; };
 		99118F1EE8C0E0AE647D85F7 /* DeviceActivityMonitorExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeviceActivityMonitorExtension.entitlements; sourceTree = "<group>"; };
 		9DFE2DD15E352A68F75AA17D /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		9E7FA05089351F752AE5C4F2 /* CoreModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreModelsTests.swift; sourceTree = "<group>"; };
@@ -112,7 +113,7 @@
 		B04814D73EDA9863AB60C97F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B23C4DF7C08AFFF92491AAF8 /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
 		CC5CE0F9B262FF6811889DCB /* ShieldUIExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ShieldUIExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE90953FB5B77A3D7D54C259 /* DeviceActivityMonitorExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = DeviceActivityMonitorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE90953FB5B77A3D7D54C259 /* DeviceActivityMonitorExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DeviceActivityMonitorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0AD82BAB4A02B58330CEEB5 /* ChoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresView.swift; sourceTree = "<group>"; };
 		EBD49A23133BAD40A882301C /* RewardShieldTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = RewardShieldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F84E38A7B8BADF570EBDDCB7 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
@@ -203,6 +204,7 @@
 		B56C5FF69F7E7D7B641F483A /* DeviceActivityMonitorExtension */ = {
 			isa = PBXGroup;
 			children = (
+				948C2D252F64A59D000B978C /* DeviceActivityMonitorExtensionDebug.entitlements */,
 				99118F1EE8C0E0AE647D85F7 /* DeviceActivityMonitorExtension.entitlements */,
 				34348747B9644DA0C0902521 /* DeviceActivityMonitorExtension.swift */,
 				B04814D73EDA9863AB60C97F /* Info.plist */,
@@ -356,7 +358,6 @@
 			);
 			mainGroup = 13104220A92303D948412591;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -638,7 +639,7 @@
 		C5F1FB216FD1B53AFDDAED09 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Sources/DeviceActivityMonitorExtension/DeviceActivityMonitorExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DeviceActivityMonitorExtensionDebug.entitlements;
 				INFOPLIST_FILE = Sources/DeviceActivityMonitorExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

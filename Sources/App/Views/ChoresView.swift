@@ -9,23 +9,14 @@ struct ChoresView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                // Filter Picker
-                Picker("Filter", selection: $appState.taskFilter) {
-                    ForEach(TaskFilter.allCases) { filter in
-                        Text(filter.displayName).tag(filter)
-                    }
-                }
-                .pickerStyle(.segmented)
-                .padding()
-
                 // Task List
-                if appState.filteredTasks.isEmpty {
+                if appState.rewardTasks.isEmpty {
                     emptyStateView
                 } else {
                     taskList
                 }
             }
-            .navigationTitle("Chores")
+            .navigationTitle("Tasks")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -73,7 +64,7 @@ struct ChoresView: View {
                             VStack(spacing: 0) {
                                 ForEach(tasks) { task in
                                     ChoreTaskRow(task: task) {
-                                        appState.toggleTaskCompletion(task)
+                                        taskToEdit = task
                                     }
                                     .swipeActions(edge: .trailing) {
                                         Button(role: .destructive) {
@@ -138,22 +129,16 @@ struct CategoryHeader: View {
 /// Individual chore task row
 struct ChoreTaskRow: View {
     let task: RewardTask
-    let onToggle: () -> Void
+    let onTap: () -> Void
 
     var body: some View {
-        Button(action: onToggle) {
+        Button(action: onTap) {
             HStack(spacing: 12) {
-                // Completion checkbox
-                Image(systemName: task.isCompleted ? "checkmark.circle.fill" : "circle")
-                    .font(.title2)
-                    .foregroundColor(task.isCompleted ? .green : .secondary)
-
                 // Task details
                 VStack(alignment: .leading, spacing: 4) {
                     Text(task.title)
                         .font(.body)
-                        .foregroundColor(task.isCompleted ? .secondary : .primary)
-                        .strikethrough(task.isCompleted)
+                        .foregroundColor(.primary)
 
                     // Day indicators and schedule
                     HStack(spacing: 4) {
